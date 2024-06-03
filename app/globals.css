@@ -2,32 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 30 100% 97%; /* Light beige paper background */
+    --foreground: 30 30% 10%; /* Dark brown ink color */
+    --card: 30 100% 97%; /* Matching paper card */
+    --card-foreground: 30 30% 10%; /* Matching ink color */
+    --popover: 30 100% 97%; /* Matching paper popover */
+    --popover-foreground: 30 30% 10%; /* Matching ink color */
+    --primary: 210 10% 20%; /* Darker blue ink */
+    --primary-foreground: 30 100% 97%; /* Light beige paper */
+    --secondary: 210 10% 90%; /* Very light blue ink */
+    --secondary-foreground: 30 30% 10%; /* Dark brown ink */
+    --muted: 210 10% 90%; /* Very light blue ink */
+    --muted-foreground: 30 30% 40%; /* Medium brown ink */
+    --accent: 210 10% 90%; /* Very light blue ink */
+    --accent-foreground: 30 30% 10%; /* Dark brown ink */
+    --destructive: 0 84.2% 60.2%; /* Red ink */
+    --destructive-foreground: 30 100% 97%; /* Light beige paper */
+    --border: 30 30% 70%; /* Light brown border */
+    --input: 30 30% 70%; /* Light brown input */
+    --ring: 30 30% 10%; /* Dark brown ring */
+    --radius: 0.25rem; /* Slightly rounded corners */
+    --font-family: "Homemade Apple", cursive; /* Handwriting font */
+  }
+
+  .dark {
+    --background: 30 30% 10%; /* Dark brown paper background */
+    --foreground: 30 100% 97%; /* Light beige ink color */
+    --card: 30 30% 10%; /* Matching dark paper card */
+    --card-foreground: 30 100% 97%; /* Matching light ink color */
+    --popover: 30 30% 10%; /* Matching dark paper popover */
+    --popover-foreground: 30 100% 97%; /* Matching light ink color */
+    --primary: 210 10% 90%; /* Light blue ink */
+    --primary-foreground: 30 30% 10%; /* Dark brown ink */
+    --secondary: 30 30% 30%; /* Medium brown ink */
+    --secondary-foreground: 30 100% 97%; /* Light beige ink */
+    --muted: 30 30% 30%; /* Medium brown ink */
+    --muted-foreground: 30 100% 60%; /* Light brown ink */
+    --accent: 30 30% 30%; /* Medium brown ink */
+    --accent-foreground: 30 100% 97%; /* Light beige ink */
+    --destructive: 0 84.2% 60.2%; /* Red ink */
+    --destructive-foreground: 30 100% 97%; /* Light beige ink */
+    --border: 30 30% 30%; /* Medium brown border */
+    --input: 30 30% 30%; /* Medium brown input */
+    --ring: 30 100% 97%; /* Light beige ring */
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
